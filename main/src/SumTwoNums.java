@@ -1,10 +1,25 @@
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+/**
+ * The SumTwoNums class provides a utility to add two large numbers represented as strings.
+ * It simulates the manual addition process taught in elementary school,
+ * processing digits from right to left and handling carry-over values.
+ * @version 0.0.1
+ */
 public class SumTwoNums {
     // Standard SLF4J logger initialization
     private static final Logger logger = Logger.getLogger(SumTwoNums.class.getName());
-
+    /**
+     * Adds two large numbers represented as strings.
+     * This method iterates through both strings simultaneously from the last character
+     * to the first, sums the numeric values, and maintains a carry for the next position.
+     * Each step of the calculation is logged to the console.
+     *
+     * @param stn1 The first number as a String.
+     * @param stn2 The second number as a String.
+     * @return The sum of stn1 and stn2 as a String.
+     */
     public static String sum(String stn1, String stn2) {
         // Initialize 2 pointers for 2 number string
         int i = stn1.length() - 1;
@@ -63,6 +78,10 @@ public class SumTwoNums {
         logger.log(Level.INFO, "Final result: {0}", finalResult);
         return finalResult;
     }
+    /**
+     * Main entry point of the application.
+     * Prompts the user for two numbers via the console and displays the result.
+     */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         logger.log(Level.INFO, "Input first number");
