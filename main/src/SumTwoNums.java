@@ -1,10 +1,11 @@
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class SumTwoNums {
     // Standard SLF4J logger initialization
     private static final Logger logger = Logger.getLogger(SumTwoNums.class.getName());
 
-    public String sum(String stn1, String stn2) {
+    public static String sum(String stn1, String stn2) {
         // Initialize 2 pointers for 2 number string
         int i = stn1.length() - 1;
         int j = stn2.length() - 1;
@@ -53,13 +54,6 @@ public class SumTwoNums {
                 result.append(digit);
                 carry = nextCarry;
             }
-
-            // Log current result state
-            if (logger.isLoggable(Level.INFO)) {
-                result.reverse();
-                logger.log(Level.INFO,"Current result: {0}", result.toString());
-                result.reverse();
-            }
             // Continue to next digit to the left of both string
             i--;
             j--;
@@ -68,5 +62,14 @@ public class SumTwoNums {
         String finalResult = result.reverse().toString();
         logger.log(Level.INFO, "Final result: {0}", finalResult);
         return finalResult;
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        logger.log(Level.INFO, "Input first number");
+        String stn1 = in.nextLine();
+        logger.log(Level.INFO, "Input second number");
+        String stn2 = in.nextLine();
+        String result = sum(stn1,stn2);
+        logger.log(Level.INFO, "Result sum 2 number "+stn1+" and "+stn2+" is: "+result);
     }
 }
